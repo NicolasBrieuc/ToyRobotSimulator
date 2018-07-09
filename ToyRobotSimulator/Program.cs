@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace ToyRobotSimulator
 {
@@ -21,8 +18,71 @@ namespace ToyRobotSimulator
             Console.WriteLine(" - MOVE => MOVE will move the toy robot one unit forward in the direction it is currently facing");
             Console.WriteLine(" - LEFT / RIGHT => LEFT and RIGHT will rotate the robot 90 degrees in the specified direction without changing the position of the robot");
             Console.WriteLine(" - REPORT => REPORT will announce the X,Y and F of the robot");
-            
-            var cmd = Console.ReadLine();
+            Console.WriteLine(" - EXIT => REPORT will exit and close the simulator");
+
+            var toyRobot = new ToyRobot();
+
+            while (true)
+            {
+                var input = Console.ReadLine().ToUpper();
+
+                if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                {
+                    break;
+                }
+                
+                try
+                {
+                    switch (input)
+                    {
+                        case var someVal when new Regex(@"(PLACE) [0-4],[0-4],(NORTH|SOUTH|EAST|WEST)").IsMatch(someVal):
+                            string parameters = someVal.Replace("PLACE ", string.Empty);
+                            int x = int.Parse(parameters.Substring(0,1));
+                            int y = int.Parse(parameters.Substring(2, 1));
+                            string facing = parameters.Substring(4);
+                            switch (facing)
+                            {
+                                case "NORTH":
+                                    toyRobot.Place(x, y, Facing.North);
+                                    break;
+                                case "SOUTH":
+                                    toyRobot.Place(x, y, Facing.South);
+                                    break;
+                                case "EAST":
+                                    toyRobot.Place(x, y, Facing.East);
+                                    break;
+                                case "WEST":
+                                    toyRobot.Place(x, y, Facing.West);
+                                    break;
+                            }
+                            break;
+                        case "MOVE":
+                            toyRobot.Move();
+                            break;
+                        case "LEFT":
+                            toyRobot.Left();
+                            break;
+                        case "RIGHT":
+                            toyRobot.Right();
+                            break;
+                        case "REPORT":
+                            Console.WriteLine(toyRobot.Report());
+                            break;
+                        default:
+                            Console.WriteLine("Not a valid command! Please try again.");
+                            break;
+                    }
+                }
+                catch (NoValidPlaceCommandExecutedException)
+                {
+                    Console.WriteLine("No valid Place command previously executed! Please try again");
+                }
+                catch (RobotWillFallException)
+                {
+                    Console.WriteLine("This move will make the robot fall! Please try again");
+                }
+            }
         }
     }
 }
+
