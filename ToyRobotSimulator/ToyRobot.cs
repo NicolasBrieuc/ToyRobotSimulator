@@ -2,6 +2,41 @@
 
 namespace ToyRobotSimulator
 {
+
+    public class RobotWillFallException : Exception
+    {
+        public RobotWillFallException()
+        {
+        }
+
+        public RobotWillFallException(string message)
+            : base(message)
+        {
+        }
+
+        public RobotWillFallException(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
+    }
+
+    public class NoValidPlaceCommandExecutedException : Exception
+    {
+        public NoValidPlaceCommandExecutedException()
+        {
+        }
+
+        public NoValidPlaceCommandExecutedException(string message)
+            : base(message)
+        {
+        }
+
+        public NoValidPlaceCommandExecutedException(string message, Exception inner)
+            : base(message, inner)
+        {
+        }
+    }
+
     public class ToyRobot
     {
         public ToyRobot()
@@ -31,18 +66,29 @@ namespace ToyRobotSimulator
 
         public void Move()
         {
+            if (!_validPlaceExecuted)
+                throw new NoValidPlaceCommandExecutedException();
+
             switch (Facing)
             {
                 case Facing.North:
+                    if (Y >= 4)
+                        throw new RobotWillFallException();
                     Y = Y + 1;
                     break;
                 case Facing.East:
+                    if (X >= 4)
+                        throw new RobotWillFallException();
                     X = X + 1;
                     break;
                 case Facing.South:
+                    if (Y <= 0)
+                        throw new RobotWillFallException();
                     Y = Y - 1;
                     break;
                 case Facing.West:
+                    if (X <= 0)
+                        throw new RobotWillFallException();
                     X = X - 1;
                     break;
             }
@@ -50,6 +96,9 @@ namespace ToyRobotSimulator
 
         public void Left()
         {
+            if (!_validPlaceExecuted)
+                throw new NoValidPlaceCommandExecutedException();
+
             switch (Facing)
                 {
                 case Facing.North:
@@ -69,6 +118,9 @@ namespace ToyRobotSimulator
 
         public void Right()
         {
+            if (!_validPlaceExecuted)
+                throw new NoValidPlaceCommandExecutedException();
+
             switch (Facing)
             {
                 case Facing.North:
@@ -88,6 +140,9 @@ namespace ToyRobotSimulator
 
         public string Report()
         {
+            if (!_validPlaceExecuted)
+                throw new NoValidPlaceCommandExecutedException();
+
             return string.Format(
                 "{0},{1},{2}",
                 X.ToString(),

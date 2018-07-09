@@ -117,7 +117,6 @@ namespace ToyRobotSimulatorUnitTests
             }
         }
 
-
         [TestMethod]
         public void TestMove()
         {
@@ -156,6 +155,85 @@ namespace ToyRobotSimulatorUnitTests
         }
 
         [TestMethod]
+        public void TestMoveRobotWillFallException()
+        {
+            // Create an instance to test:  
+            ToyRobot robot = new ToyRobot();
+            // Define a test input and output value:  
+            int x = 4;
+            int y = 4;
+            Facing facing = Facing.North;
+
+            robot.Place(x, y, facing);
+
+            // Run the method under test and verify test when facing North  
+            try
+            {
+                robot.Move();
+                Assert.Fail("Robot will fall");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(RobotWillFallException), ex.GetType(), ex.Message);
+            }
+            
+            // Run the method under test and verify test when facing East
+            robot.GetType().GetProperty("Facing").SetValue(robot, Facing.East);
+            try
+            {
+                robot.Move();
+                Assert.Fail("Robot will fall");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(RobotWillFallException), ex.GetType(), ex.Message);
+            }
+            // Run the method under test and verify test when facing South
+            robot.GetType().GetProperty("Facing").SetValue(robot, Facing.South);
+            robot.GetType().GetProperty("Y").SetValue(robot, 0);
+            try
+            {
+                robot.Move();
+                Assert.Fail("Robot will fall");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(RobotWillFallException), ex.GetType(), ex.Message);
+            }
+            // Run the method under test and verify test when facing West
+            robot.GetType().GetProperty("Facing").SetValue(robot, Facing.West);
+            robot.GetType().GetProperty("X").SetValue(robot, 0);
+            try
+            {
+                robot.Move();
+                Assert.Fail("Robot will fall");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(RobotWillFallException), ex.GetType(), ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void TestMoveNoValidPlaceCommandExecutedException()
+        {
+
+            // Create an instance to test:  
+            ToyRobot robot = new ToyRobot();
+            
+            // Run the method under test:
+            try
+            {
+                robot.Move();
+                Assert.Fail("A valid Place command needs to be executed first");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(NoValidPlaceCommandExecutedException), ex.GetType(), ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void TestLeft()
         {
             // Create an instance to test:  
@@ -176,6 +254,24 @@ namespace ToyRobotSimulatorUnitTests
             Assert.AreEqual(robot.Facing, Facing.East);
             robot.Left();
             Assert.AreEqual(robot.Facing, Facing.North);
+        }
+
+        public void TestLeftNoValidPlaceCommandExecutedException()
+        {
+
+            // Create an instance to test:  
+            ToyRobot robot = new ToyRobot();
+
+            // Run the method under test:
+            try
+            {
+                robot.Left();
+                Assert.Fail("A valid Place command needs to be executed first");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(NoValidPlaceCommandExecutedException), ex.GetType(), ex.Message);
+            }
         }
 
         [TestMethod]
@@ -200,6 +296,25 @@ namespace ToyRobotSimulatorUnitTests
         }
 
         [TestMethod]
+        public void TestRightNoValidPlaceCommandExecutedException()
+        {
+
+            // Create an instance to test:  
+            ToyRobot robot = new ToyRobot();
+
+            // Run the method under test:
+            try
+            {
+                robot.Right();
+                Assert.Fail("A valid Place command needs to be executed first");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(NoValidPlaceCommandExecutedException), ex.GetType(), ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void TestReport()
         {
             // Create an instance to test:  
@@ -216,6 +331,25 @@ namespace ToyRobotSimulatorUnitTests
             // Verify the result:  
             Assert.AreEqual("0,0,NORTH", location);
             
+        }
+
+        [TestMethod]
+        public void TestReportNoValidPlaceCommandExecutedException()
+        {
+
+            // Create an instance to test:  
+            ToyRobot robot = new ToyRobot();
+
+            // Run the method under test:
+            try
+            {
+                robot.Report();
+                Assert.Fail("A valid Place command needs to be executed first");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(typeof(NoValidPlaceCommandExecutedException), ex.GetType(), ex.Message);
+            }
         }
     }
 }
