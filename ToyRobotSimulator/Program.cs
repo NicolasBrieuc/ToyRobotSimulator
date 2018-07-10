@@ -24,7 +24,7 @@ namespace ToyRobotSimulator
 
             while (true)
             {
-                var input = Console.ReadLine().ToUpper();
+                var input = Console.ReadLine().ToUpper().Trim();
 
                 if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
                 {
@@ -35,6 +35,7 @@ namespace ToyRobotSimulator
                 {
                     switch (input)
                     {
+
                         case var someVal when new Regex(@"(PLACE) [0-4],[0-4],(NORTH|SOUTH|EAST|WEST)").IsMatch(someVal):
                             string parameters = someVal.Replace("PLACE ", string.Empty);
                             int x = int.Parse(parameters.Substring(0,1));

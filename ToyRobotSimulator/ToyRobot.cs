@@ -3,6 +3,9 @@
 namespace ToyRobotSimulator
 {
 
+    public enum Facing { North, South, East, West }
+
+    [Serializable]
     public class RobotWillFallException : Exception
     {
         public RobotWillFallException()
@@ -20,6 +23,7 @@ namespace ToyRobotSimulator
         }
     }
 
+    [Serializable]
     public class NoValidPlaceCommandExecutedException : Exception
     {
         public NoValidPlaceCommandExecutedException()
@@ -50,7 +54,7 @@ namespace ToyRobotSimulator
 
         public void Place(int x, int y, Facing facing)
         {
-            const string intErrorMessage = "Must an integer between 0 and 4";
+            const string intErrorMessage = "The parameter must be an integer between 0 and 4";
 
             if (x < 0 || x > 4)
                 throw new ArgumentOutOfRangeException("x", intErrorMessage);

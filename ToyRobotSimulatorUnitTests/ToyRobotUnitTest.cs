@@ -8,7 +8,7 @@ namespace ToyRobotSimulatorUnitTests
     public class ToyRobotUnitTest
     {
         [TestMethod]
-        public void TestPlace()
+        public void TestPlaceOnTable()
         {
             // Create an instance to test:  
             ToyRobot robot = new ToyRobot();
@@ -31,7 +31,6 @@ namespace ToyRobotSimulatorUnitTests
             // Create an instance to test:  
             ToyRobot robot = new ToyRobot();
             // Define a test input and output value:  
-            int x = 0;
             int y = 0;
             Facing facing = Facing.North;
 
@@ -79,7 +78,6 @@ namespace ToyRobotSimulatorUnitTests
             ToyRobot robot = new ToyRobot();
             // Define a test input and output value:  
             int x = 0;
-            int y = 0;
             Facing facing = Facing.North;
 
             // Run the method under test:
@@ -102,7 +100,6 @@ namespace ToyRobotSimulatorUnitTests
             ToyRobot robot = new ToyRobot();
             // Define a test input and output value:  
             int x = 0;
-            int y = 0;
             Facing facing = Facing.North;
 
             // Run the method under test:
@@ -118,7 +115,7 @@ namespace ToyRobotSimulatorUnitTests
         }
 
         [TestMethod]
-        public void TestMove()
+        public void TestMoveOnTable()
         {
             // Create an instance to test:  
             ToyRobot robot = new ToyRobot();
@@ -234,7 +231,7 @@ namespace ToyRobotSimulatorUnitTests
         }
 
         [TestMethod]
-        public void TestLeft()
+        public void TestLeftWhenCorrectlyPlaced()
         {
             // Create an instance to test:  
             ToyRobot robot = new ToyRobot();
@@ -275,7 +272,7 @@ namespace ToyRobotSimulatorUnitTests
         }
 
         [TestMethod]
-        public void TestRight()
+        public void TestRightWhenCorrectlyPlaced()
         {
             // Create an instance to test:  
             ToyRobot robot = new ToyRobot();
@@ -315,7 +312,7 @@ namespace ToyRobotSimulatorUnitTests
         }
 
         [TestMethod]
-        public void TestReport()
+        public void TestReportWhenCorrectlyPlaced()
         {
             // Create an instance to test:  
             ToyRobot robot = new ToyRobot();

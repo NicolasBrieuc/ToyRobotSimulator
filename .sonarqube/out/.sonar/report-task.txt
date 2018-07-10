@@ -1,0 +1,7 @@
+organization=nicolasbrieuc-github
+projectKey=projecttesting
+serverUrl=https://sonarcloud.io
+serverVersion=7.3.0.14089
+dashboardUrl=https://sonarcloud.io/dashboard?id=projecttesting
+ceTaskId=AWSDeR0cXvYvXQrbHTac
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWSDeR0cXvYvXQrbHTac

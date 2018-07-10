@@ -7,11 +7,11 @@ c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\D
 c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\Debug\ToyRobotSimulator.exe
 c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\Debug\ToyRobotSimulator.pdb
-c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\Debug\ToyRobotSimulator.exe.config
 c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.csprojAssemblyReference.cache
-c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.csproj.CoreCompileInputs.cache
-c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.csproj.CopyComplete
 c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.dll
 c:\users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.pdb
+C:\Users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\bin\Debug\ToyRobotSimulator.exe.config
+C:\Users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.csprojAssemblyReference.cache
+C:\Users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.csproj.CoreCompileInputs.cache
+C:\Users\nbrieuc\source\repos\ToyRobotSimulator\ToyRobotSimulatorUnitTests\obj\Debug\ToyRobotSimulatorUnitTests.csproj.CopyComplete
